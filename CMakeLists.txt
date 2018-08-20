@@ -1,0 +1,1 @@
+ADD_LIBRARY(rc STATIC rc.c)
