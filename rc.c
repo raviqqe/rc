@@ -17,7 +17,7 @@ void rc_free(rc_t *rc) {
 
   if (*count == 0) {
     free(rc_alloc_ptr(*rc));
+  } else {
+    rc->ptr = NULL;
   }
-
-  rc->ptr = NULL;
 }
