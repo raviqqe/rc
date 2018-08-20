@@ -1,6 +1,8 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-void move(void *, void *);
+typedef struct rc { void *ptr; } rc_t;
+
+void move(rc_t, rc_t);
 
 #endif
