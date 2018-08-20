@@ -1,11 +1,13 @@
 #include "rc.h"
 
-static void *rc_alloc_ptr(rc_t rc) { return rc.ptr - sizeof(size_t); }
+const size_t count_size = sizeof(atomic_size_t);
+
+static void *rc_alloc_ptr(rc_t rc) { return rc.ptr - count_size; }
 
 static atomic_size_t *rc_count(rc_t rc) { return rc_alloc_ptr(rc); }
 
 rc_t rc_malloc(size_t size) {
-  rc_t rc = (rc_t){malloc(sizeof(size_t) + size)};
+  rc_t rc = (rc_t){malloc(count_size + size) + count_size};
 
   atomic_store(rc_count(rc), 1);
 
