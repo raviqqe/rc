@@ -1,6 +1,7 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <stdatomic.h>
 #include <stdlib.h>
 
 typedef struct { void *ptr; } rc_t;
