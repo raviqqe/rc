@@ -6,6 +6,14 @@ static void *rc_alloc_ptr(rc_t rc) {
 
 static size_t *rc_count(rc_t rc) { return (size_t *)(rc_alloc_ptr(rc)); }
 
+rc_t rc_malloc(size_t size) {
+  rc_t rc = (rc_t){malloc(sizeof(size_t) + size)};
+
+  (*rc_count(rc))++;
+
+  return rc;
+}
+
 void rc_move(rc_t src, rc_t *dst) {
   // TODO: Write real move code.
 }
