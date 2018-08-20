@@ -26,7 +26,9 @@ rc_t rc_copy(rc_t rc) {
 }
 
 void rc_move(rc_t src, rc_t *dst) {
-  rc_free(dst);
+  if (dst->ptr != NULL) {
+    rc_free(dst);
+  }
 
   *dst = src;
 }
