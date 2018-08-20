@@ -19,6 +19,12 @@ rc_t rc_malloc(size_t size) {
   return rc;
 }
 
+rc_t rc_copy(rc_t rc) {
+  rc_increment_count(rc);
+
+  return rc;
+}
+
 void rc_move(rc_t src, rc_t *dst) {
   rc_free(dst);
 
