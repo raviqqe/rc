@@ -11,9 +11,11 @@ void rc_move(rc_t src, rc_t *dst) {
 }
 
 void rc_free(rc_t *rc) {
-  (*rc_count(*rc))--;
+  size_t *count = rc_count(*rc);
 
-  if (*rc_count(*rc) == 0) {
+  (*count)--;
+
+  if (*count == 0) {
     free(rc_alloc_ptr(*rc));
   }
 
