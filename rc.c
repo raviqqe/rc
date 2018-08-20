@@ -15,7 +15,9 @@ rc_t rc_malloc(size_t size) {
 }
 
 void rc_move(rc_t src, rc_t *dst) {
-  // TODO: Write real move code.
+  rc_free(dst);
+
+  *dst = src;
 }
 
 void rc_free(rc_t *rc) {
