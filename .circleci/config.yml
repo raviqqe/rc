@@ -9,6 +9,6 @@ jobs:
           apt -y upgrade
           apt -y install build-essential cmake
       - checkout
-      - run: |
-          cmake .
-          make
+      - run: cmake .
+      - run: make
+      - run: make test
